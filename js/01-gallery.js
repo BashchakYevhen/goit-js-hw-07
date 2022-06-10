@@ -34,10 +34,13 @@ function onGalleryClick(e) {
 		<img width="800" height="600"
         src="${e.target.dataset.source}">
         alt= "${e.target.alt}
-	`)
+	`, {
+		onShow: (instance) => console.log('onShow', instance),
+		onClose: (instance) => console.log('onClose', instance)
+	})
     createLightBox.show();
     
-    addEventListener("keydown", onEscClose)
+    // addEventListener("keydown", onEscClose)
 
     function onEscClose(e) {
         if (e.code === "Escape") {
@@ -49,3 +52,8 @@ removeEventListener("keydown", onEscClose)
 
 
 
+// //+++++++++++++++++++
+// 	const instance = basicLightbox.create(html, {
+// 		onShow: (instance) => console.log('onShow', instance),
+// 		onClose: (instance) => console.log('onClose', instance)
+// 	})
